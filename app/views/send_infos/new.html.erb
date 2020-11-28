@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>BIGO</h1>
+    <ul>
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to '統計', send_infos_path %></li>
+    </ul>
+  </header>
+  <div class="container">
+    <%= form_with model: @user, local: true do |f| %>
+      <%= f.text_area :name, class:"user", placeholder:"＠以降を一人1行で入力してください" ,rows:"25" ,maxlength:"500" %>
+      <%= f.text_area :text, class:"text", value: @value , placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>
+      <%= f.submit "送信する" ,class:"btn" %><br>
+    <% end %>
+  </div>
+</body>
+</html>

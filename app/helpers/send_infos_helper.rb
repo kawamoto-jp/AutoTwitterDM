@@ -1,0 +1,2 @@
+module SendInfosHelper
+end
