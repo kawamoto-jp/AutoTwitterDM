@@ -1,6 +1,16 @@
 class SendInfosController < ApplicationController
   before_action :set_twitter_client
 
+  def index
+    dates = []
+    @managemants = SendInfo.all
+    SendInfo.order(:created_at).pluck(:created_at).each do |created_at|
+      dates << created_at.strftime("%Y年%m月%d日")
+    end
+    @data = dates.group_by(&:itself).map{ |key, value| [key, value.count] }.to_h
+  end
+
+
   def new
     if SendInfo.ids.length > 0
       a = SendInfo.all.order(created_at: :desc).limit(1).pluck(:id)
@@ -37,16 +47,20 @@ class SendInfosController < ApplicationController
 
   private
 
+  def self.chart_date
+    order(result_date: :asc).pluck('result_date', 'id').to_h
+  end
+
   def send_info_params
     @params = params.require(:send_info).permit(:name, :text)
   end
 
   def set_twitter_client
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "5hBP2lIi2m9g13BTyiqBLBMUX"
-      config.consumer_secret     = "W1vCLHfH4vM0iKg1VH9nj813nYYqXW9ayyanQbgYNqVO2kiumG"
-      config.access_token        = "1326499357-6kUEnc2VQETtABFyK2YGPTk3iF1OM4iUWeOEw75"
-      config.access_token_secret = "MBvuE37XCQn22WG9ZB9zzbw3MUCapWTsIWAFZ5oKsrzWB"
+      config.consumer_key        = "XXX"
+      config.consumer_secret     = "XXX"
+      config.access_token        = "XXX"
+      config.access_token_secret = "XXX"
     end
   end
 end
