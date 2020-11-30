@@ -1,0 +1,17 @@
+<header>
+  <h1><%= link_to 'BIGO', root_path %></h1>
+  <div class="header_list">
+    <p><%= link_to 'トップ', root_path %></p>
+    <p><%= link_to '統計', send_infos_path %></p>
+  </div>
+</header>
+<div class="container">
+  <% if @users_who_can_not_send.length == 0 %>
+    <p>正常に送信されました。<br>お疲れ様でした。</p>
+  <% else %>
+    <% @users_who_can_not_send.each do |name| %>
+    <h3><%= name %></h3>
+    <% end %>
+    <p>には送信できませんでした。<br>お疲れ様でした。</p>
+  <% end %>
+</div>

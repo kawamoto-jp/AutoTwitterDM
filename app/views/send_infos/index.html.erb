@@ -1,3 +1,10 @@
-<%= column_chart @data, xtitle: "日付", ytitle: "送信数", width: "600px", height: "400px" %>
-
-<%= link_to 'トップ', root_path %>
+<header>
+  <h1><%= link_to 'BIGO', root_path %></h1>
+  <div class="header_list">
+    <p><%= link_to 'トップ', root_path %></p>
+    <p><%= link_to '統計', send_infos_path %></p>
+  </div>
+</header>
+<div class="container">
+  <%= column_chart @data, xtitle: "日付", ytitle: "送信数", width: "600px", height: "400px" %>
+</div>
