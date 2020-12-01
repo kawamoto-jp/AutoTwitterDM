@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <header>
+      <h1><%= link_to 'BIGO', root_path, class: 'link' %></h1>
+      <div class="header_list">
+        <p><%= link_to 'トップ',  root_path, class: 'header_btn' %></p>
+        <p><%= link_to '統計', send_infos_path, class: 'header_btn' %></p>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

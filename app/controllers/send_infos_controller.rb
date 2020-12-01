@@ -4,11 +4,18 @@ class SendInfosController < ApplicationController
 
   def index
     dates = []
-    @managemants = SendInfo.all
-    SendInfo.order(:created_at).pluck(:created_at).each do |created_at|
+    to  = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    @items = SendInfo.where(created_at: from...to)
+    @items.order(:created_at).pluck(:created_at).each do |created_at|
       dates << created_at.strftime("%m/%d")
     end
     @data = dates.group_by(&:itself).map{ |key, value| [key, value.count] }.to_h
+
+    
+
+    
+    # binding.pry
   end
 
   def new
