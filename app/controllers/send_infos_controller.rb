@@ -11,10 +11,6 @@ class SendInfosController < ApplicationController
       dates << created_at.strftime("%m/%d")
     end
     @data = dates.group_by(&:itself).map{ |key, value| [key, value.count] }.to_h
-
-    
-
-    
     # binding.pry
   end
 
@@ -27,34 +23,35 @@ class SendInfosController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = SendInfo.new(send_info_params)
-    names = @user.name.split
+    @names = @user.name.split
     user_arys = []
-    names.length.times do
+    @names.length.times do
       user_arys << @params
     end
 
     @users_who_can_not_send = []
     i = 0
-    user_arys.zip(names) do |user_hash, naming|
-      user_hash["name"] = names[i]
-      begin
-        @client.user(naming)
-        user_id = @client.user(naming).id
-        if @params["text"] != ""
-          @client.create_direct_message(user_id, @params["text"])
-          if SendInfo.new(user_hash).valid?
-            SendInfo.new(user_hash).save
-            i += 1
-          end
-        end
-        # sleep(60)
-      rescue
-        i += 1
-        @users_who_can_not_send << naming
-        # sleep(60)
+    user_arys.zip(@names) do |user_hash, naming|
+      
+      if i % 90 == 0 && i != 0
+        sleep(10800)
       end
+      user_hash["name"] = @names[i]
+      begin
+        if @params["text"] != ""
+          @client.create_direct_message(@client.user(naming).id, "#{@client.user(naming).name}#{@params["atena"]}\n\n#{@params["text"]}")
+          SendInfo.new(user_hash).save
+        end
+        sleep(120)
+      rescue
+        @users_who_can_not_send << naming
+        sleep(120)
+      end
+      i += 1
     end
+    
   end
 
   private
@@ -64,7 +61,7 @@ class SendInfosController < ApplicationController
   end
 
   def send_info_params
-    @params = params.require(:send_info).permit(:name, :text)
+    @params = params.require(:send_info).permit(:name, :text, :atena)
   end
 
   def set_twitter_client
@@ -78,7 +75,7 @@ class SendInfosController < ApplicationController
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == 'admin' && password == '2222'
+      username == 'aaaa' && password == '2222'
     end
   end
 

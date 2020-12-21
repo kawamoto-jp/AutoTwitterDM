@@ -2,13 +2,23 @@
   <%= form_with model: @user, local: true do |f| %>
   <div class="form">
     <div class="content">
-      <p><%= f.label :store_name, "Twitterアカウント" %></p>
+      <p class="title"><%= f.label :store_name, "Twitterアカウント" %></p>
       <%= f.text_area :name, class:"text", placeholder:"＠以降を一人1行で入力してください" ,rows:"25" ,maxlength:"500" %>
     </div>
+
+    <div class="atena">
+      <p class="title"><%= f.label :store_name, "宛名の敬称" %></p>
+      <p class="row">※宛名と送信文章の間は1行分空いています。</p>
+      <%= f.text_area :atena, class:"text", placeholder:"様へ", rows:"10" ,maxlength:"50" %>
+    </div>
+    
     <div class="content">
-      <p><%= f.label :store_name, "文章" %></p>
+      <p class="title"><%= f.label :store_name, "文章" %></p>
       <%= f.text_area :text, class:"text", value: @value , placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>
     </div>
+  </div>
+  <div class="example">
+    
   </div>
   <div class="submit">
     <%= f.submit "送信する" ,class:"btn", id:"indicator" %>
