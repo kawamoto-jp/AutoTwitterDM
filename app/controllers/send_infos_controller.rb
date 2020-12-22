@@ -36,7 +36,7 @@ class SendInfosController < ApplicationController
     user_arys.zip(@names) do |user_hash, naming|
       
       if i % 90 == 0 && i != 0
-        sleep(10800)
+        sleep(1800)
       end
       user_hash["name"] = @names[i]
       begin
