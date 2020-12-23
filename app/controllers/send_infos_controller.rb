@@ -44,10 +44,10 @@ class SendInfosController < ApplicationController
           @client.create_direct_message(@client.user(naming).id, "#{@client.user(naming).name}#{@params["atena"]}\n\n#{@params["text"]}")
           SendInfo.new(user_hash).save
         end
-        sleep(120)
+        # sleep(120)
       rescue
         @users_who_can_not_send << naming
-        sleep(120)
+        # sleep(120)
       end
       i += 1
     end
