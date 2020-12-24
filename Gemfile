@@ -58,3 +58,4 @@ gem 'twitter'
 
 gem 'chartkick'
 gem 'groupdate'
+gem 'jquery-rails'

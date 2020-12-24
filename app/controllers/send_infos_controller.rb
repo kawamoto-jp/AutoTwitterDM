@@ -34,8 +34,7 @@ class SendInfosController < ApplicationController
     @users_who_can_not_send = []
     i = 0
     user_arys.zip(@names) do |user_hash, naming|
-      
-      if i % 90 == 0 && i != 0
+      if i % 100 == 0 && i != 0
         sleep(1800)
       end
       user_hash["name"] = @names[i]
@@ -44,10 +43,10 @@ class SendInfosController < ApplicationController
           @client.create_direct_message(@client.user(naming).id, "#{@client.user(naming).name}#{@params["atena"]}\n\n#{@params["text"]}")
           SendInfo.new(user_hash).save
         end
-        sleep(29)
+        # sleep(29)
       rescue
         @users_who_can_not_send << naming
-        sleep(29)
+        # sleep(29)
       end
       i += 1
     end

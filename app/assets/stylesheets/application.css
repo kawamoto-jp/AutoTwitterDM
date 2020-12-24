@@ -83,7 +83,7 @@ header {
   margin: 0 20px;
 }
 
-.user, .text {
+#name, #text {
   width: 400px;
   font-size: 20px;
 }
