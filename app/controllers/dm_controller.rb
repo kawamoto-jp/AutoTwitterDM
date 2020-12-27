@@ -2,25 +2,18 @@ class DmController < ApplicationController
   before_action :set_twitter_client
 
   def new
-    user_num = SendInfo.count
+    @user_num = SendInfo.count
     @user = SendInfo.first
     begin
       @client.create_direct_message(@client.user(@user.name).id, "#{@client.user(@user.name).name}#{@user.atena}\n\n#{@user.text}")
     rescue
-      # @users_who_can_not_send << @user.name
     end
-    if user_num != 0
+    if @user_num > 1
       @user.destroy
+    elsif @user_num == 1
+      @user.destroy
+      redirect_to root_path
     end
-  end
-
-  def create
-    # @user = SendInfo.first
-    # begin
-    #   @client.create_direct_message(@client.user(@user.name).id, "#{@client.user(@user.name).name}#{@user.atena}\n\n#{@user.text}")
-    # rescue
-    #   # @users_who_can_not_send << @user.name
-    # end
   end
 
   private

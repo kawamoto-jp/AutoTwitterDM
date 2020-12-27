@@ -3,26 +3,23 @@
   <div class="form">
     <div class="content">
       <p class="title"><%= f.label :store_name, "Twitterアカウント" %></p>
-      <%= f.text_area :name, id:"name", placeholder:"＠以降を一人1行で入力してください" ,rows:"25" ,maxlength:"500" %>
+      <%= f.text_area :name, id:"name", placeholder:"＠以降を一人1行で入力してください(@を含めても可)\n(例)\n@abcd\nyyoo" ,rows:"25" ,maxlength:"500" %>
     </div>
 
     <div class="atena">
-      <p class="title"><%= f.label :store_name, "宛名の敬称" %></p>
-      <p class="row">※宛名と送信文章の間は1行分空いています。</p>
-      <%= f.text_area :atena, id:"atena", placeholder:"様へ", rows:"10" ,maxlength:"50" %>
+      <p class="title"><%= f.label :store_name, "敬称" %></p>
+      <p class="row">※宛名と送信文章の間は1行分空けています。</p>
+      <%= f.text_area :atena, id:"atena", placeholder:"(例)様へ", rows:"10" ,maxlength:"50" %>
     </div>
     
     <div class="content">
       <p class="title"><%= f.label :store_name, "文章" %></p>
       <%= f.text_area :text, id:"text", placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>
-      <!-- <%= f.text_area :text, id:"text", value: @value , placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>-->
     </div>
-  </div>
-  <div class="example">
-    
   </div>
   <div class="submit">
     <%= f.submit "保存する" ,class:"btn" %>
+    <p style="margin-top:20px;">※こちらで一度保存してから、下の送信ボタンでDMを送ってください。</p>
   </div>
   <% end %>
   <p class="line">------------------------------------------------------------------------------------</p>
@@ -30,61 +27,41 @@
 </div>
 
 <script>
-      // (function($) {
-      //   /** インジケータ表示範囲を管理するコントローラ */
-      //   let indicatorController = {
-      //     __name: 'indicatorController',
-      //     /** インジケータ表示ボタン押下イベント */
-      //     '#indicator onclick': function(){
-      //     //インジケータ表示
-      //       let indicator = this.indicator({
-      //         message: 'block'
-      //       }).show();
-      //       setTimeout(function() {
-      //         //インジケータ除去
-      //         indicator.hide();
-      //       }, 800);
-      //     }
-      //   };
-      //   // $(function(){ h5.core.controller('#container', indicatorController)});
-      // })(jQuery);
-      
-      document.getElementById("indicator").onclick = function() {
-        if(gon.user_num == 0){
-          alert('内容が保存されていません。');
-        }else{
-          let i = 1;
-          let countup = function(){
-            if(i % 90 == 0){
-              let count3h = function(){
-                let iidd = setTimeout(count3h, 10800000);
-                console.log(i);
-                console.log(gon.user_num);
-                document.getElementById('click').click();
-                i++
-                if(i == gon.user_num + 1){
-                  clearTimeout(iidd); //idをclearTimeoutで指定している
-                  alert('送信完了しました。');
-                }
-              }
-              count3h();
-            }else{
-              console.log(i);
-              console.log(gon.user_num);
-              document.getElementById('click').click();
-              let id = setTimeout(countup, 120000);
-              // let id = setTimeout(countup, 5000);
-              i++
-              if(i == gon.user_num + 1){
-                clearTimeout(id); //idをclearTimeoutで指定している
-                alert('送信完了しました。');
-              }
+  document.getElementById("indicator").onclick = function() {
+    if(gon.user_num == 0){
+      alert('内容が保存されていません。');
+    }else{
+      let i = 1;
+      let countup = function(){
+        if(i % 90 == 0){
+          let count3h = function(){
+            let iidd = setTimeout(count3h, 10800000);
+            console.log(i);
+            console.log(gon.user_num);
+            document.getElementById('click').click();
+            i++
+            if(i == gon.user_num + 1){
+              clearTimeout(iidd);
+              alert('送信完了しました。\nトップに戻り、一度リロードしてください。');
+              // document.getElementById('mydiv').innerHTML = "<p>送信完了です！</p>";
             }
           }
-          countup();
+          count3h();
+        }else{
+          console.log(i);
+          console.log(gon.user_num);
+          document.getElementById('click').click();
+          let id = setTimeout(countup, 120000);
+          // let id = setTimeout(countup, 5000);
+          i++
+          if(i == gon.user_num + 1){
+            clearTimeout(id);
+            alert('送信完了しました。\nトップに戻り、一度リロードしてください。');
+          }
         }
-        // document.getElementById('mydiv').innerHTML = "<p>送信完了です！</p>";
-      };
-      
-    </script>
+      }
+      countup();
+    }
+  };
+</script>
 

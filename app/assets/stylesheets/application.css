@@ -101,6 +101,7 @@ header {
 
 .white {
   color:white;
+  display: none;
 }
 
 .btn {
@@ -174,9 +175,18 @@ header {
   font-weight: bold;
   border-bottom: solid 3px black;
   width: 50%;
-  margin: 20px auto 50px auto;
+  margin: 20px auto 15px auto;
 }
 
 .line {
   margin-top: 30px;
+}
+
+.tate {
+  display: flex;
+  align-items: center;
+}
+
+.span {
+  margin-bottom: 50px;
 }

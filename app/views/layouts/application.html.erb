@@ -19,21 +19,13 @@
         <div class="header_list">
           <div class="header_menu">
             <p><%= link_to 'トップ', root_path, class: 'header_btn' %></p>
-            <p><%= link_to '保存情報・統計', send_infos_path, class: 'header_btn' %></p>
+            <p><%= link_to '保存情報', send_infos_path, class: 'header_btn' %></p>
           </div>
         </div>
       </header>
-      <div class="aa">
-    
-  </div>
     <%= yield %>
-    
-    <p><%= link_to '本送信（見えなくする）', new_dm_path, id: "click", class: 'white' %></p>
+    <p><%= link_to '発火ボタン(none)', new_dm_path, id: "indicator", class: 'white' %></p>
+    <p><%= link_to '本送信(none)', new_dm_path, id: "click", class: 'white' %></p>
     </div>
-
-    
-
-
-
   </body>
 </html>

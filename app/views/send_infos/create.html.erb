@@ -1,11 +1,12 @@
 <div class="container">
   <p>正常に登録されました。<br>お疲れ様でした。</p><br>
   <div class="db">
-    <p>現在の登録データ</p>
+    <p class="big">現在の登録情報</p><p class="span"> ※宛名はIDで表示されていますが、アカウント名で送られます。</p>
     <% @users.each do |user| %>
-      <%= user.name %><%= user.atena %>
-      <%= user.text %>
-      <p>--------------------------------</p>
+    <p><%= user.name %><%= user.atena %></p>
+    <p><%= user.text %></p>
+    <p>-------------------------------------------------------------------------</p>
+    <br>
     <% end %>
   </div>
 </div>

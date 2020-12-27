@@ -1,16 +1,14 @@
 <div class="container">
-  <div class="chart cc">
-    <%= column_chart @data, xtitle: "日付", ytitle: "送信数", width: "600px", height: "400px" %>
-  </div>
-  <br>
+  
   <%= button_to "保存内容を全て削除", destroy_all_send_infos_path, method: :delete, class: 'btn2'%>
   
   <div class="users">
-    <p class="big">現在の登録情報</p>
+    <p class="big">現在の登録情報</p><p class="span"> ※宛名はIDで表示されていますが、アカウント名で送られます。</p>
     <% @users.each do |user| %>
-      <%= user.name %><%= user.atena %>
-      <%= user.text %>
-      <p>--------------------------------</p>
+    <p><%= user.name %><%= user.atena %></p>
+    <p><%= user.text %></p>
+    <p>--------------------------------------------------------------------------------</p>
+    <br>
     <% end %>
   </div>
 </div>
