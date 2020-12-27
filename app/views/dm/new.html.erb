@@ -1,34 +1,6 @@
-<div class="container textarea">
-  <%= form_with model: @user, local: true do |f| %>
-  <div class="form">
-    <div class="content">
-      <p class="title"><%= f.label :store_name, "Twitterアカウント" %></p>
-      <%= f.text_area :name, id:"name", placeholder:"＠以降を一人1行で入力してください" ,rows:"25" ,maxlength:"500" %>
-    </div>
-
-    <div class="atena">
-      <p class="title"><%= f.label :store_name, "宛名の敬称" %></p>
-      <p class="row">※宛名と送信文章の間は1行分空いています。</p>
-      <%= f.text_area :atena, id:"atena", placeholder:"様へ", rows:"10" ,maxlength:"50" %>
-    </div>
-    
-    <div class="content">
-      <p class="title"><%= f.label :store_name, "文章" %></p>
-      <%= f.text_area :text, id:"text", placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>
-      <!-- <%= f.text_area :text, id:"text", value: @value , placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>-->
-    </div>
-  </div>
-  <div class="example">
-    
-  </div>
-  <div class="submit">
-    <%= f.submit "保存する" ,class:"btn" %>
-  </div>
-  <% end %>
-  <p class="line">------------------------------------------------------------------------------------</p>
-  <p><button id="indicator" class="btn2">送信開始</button></p>
+<div class="container cc">
+  <div id="mydiv"><p>送信中・・・</p></div>
 </div>
-
 <script>
       // (function($) {
       //   /** インジケータ表示範囲を管理するコントローラ */
@@ -72,8 +44,8 @@
               console.log(i);
               console.log(gon.user_num);
               document.getElementById('click').click();
-              let id = setTimeout(countup, 120000);
-              // let id = setTimeout(countup, 5000);
+              // let id = setTimeout(countup, 120000);
+              let id = setTimeout(countup, 5000);
               i++
               if(i == gon.user_num + 1){
                 clearTimeout(id); //idをclearTimeoutで指定している
@@ -87,4 +59,3 @@
       };
       
     </script>
-

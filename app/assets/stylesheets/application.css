@@ -31,6 +31,7 @@ ul,li {
 }
 
 header {
+  height: 150px;
   text-align: center;
   margin: 30px 0 30px 0;
   color: black;
@@ -39,8 +40,13 @@ header {
 
 
 .header_list {
-  margin: 15px auto;
-  width: 200px;
+  margin: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header_menu {
   display: flex;
   justify-content: space-around;
 }
@@ -93,8 +99,11 @@ header {
   justify-content: center;
 }
 
+.white {
+  color:white;
+}
+
 .btn {
-  margin-top: 15px;
   display       : inline-block;
   border-radius : 14%;          /* 角丸       */
   font-size     : 18pt;        /* 文字サイズ */
@@ -115,6 +124,7 @@ header {
 }
 
 .header_btn {
+  margin: 0 20px;
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 12pt;        /* 文字サイズ */
@@ -132,4 +142,41 @@ header {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #000000;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
+}
+
+.btn2 {
+  margin-top: 70px;
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000000;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000000;    /* 枠の指定 */
+}
+.btn2:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000000;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.blind {
+  margin-top: 50px;
+}
+
+.big{
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: solid 3px black;
+  width: 50%;
+  margin: 20px auto 50px auto;
+}
+
+.line {
+  margin-top: 30px;
 }

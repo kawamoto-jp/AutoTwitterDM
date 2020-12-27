@@ -1,12 +1,11 @@
 <div class="container">
-  <% if @names.length == 0 %>
-    <p>アカウント名の記載がありません。<br>もう一度やり直してください。</p>
-  <% elsif @users_who_can_not_send.length == 0 %>
-    <p>正常に送信されました。<br>お疲れ様でした。</p>
-  <% elsif @users_who_can_not_send.length != 0 %>
-    <% @users_who_can_not_send.each do |name| %>
-    <h3><%= name %></h3>
+  <p>正常に登録されました。<br>お疲れ様でした。</p><br>
+  <div class="db">
+    <p>現在の登録データ</p>
+    <% @users.each do |user| %>
+      <%= user.name %><%= user.atena %>
+      <%= user.text %>
+      <p>--------------------------------</p>
     <% end %>
-    <p>には送信できませんでした。<br>お疲れ様でした。</p>
-  <% end %>
+  </div>
 </div>

@@ -1,8 +1,14 @@
-<div class="container cc">
-  <div class="chart">
+<div class="container">
+  <div class="chart cc">
     <%= column_chart @data, xtitle: "日付", ytitle: "送信数", width: "600px", height: "400px" %>
   </div>
-  <%# <% @items.each do |item| %>
-  <%# <%= item %>
-  <%# <% end %>
+  <br>
+  <div class="users">
+    <p class="big">現在の登録情報</p>
+    <% @users.each do |user| %>
+      <%= user.name %><%= user.atena %>
+      <%= user.text %>
+      <p>--------------------------------</p>
+    <% end %>
+  </div>
 </div>
