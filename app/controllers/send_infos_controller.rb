@@ -43,6 +43,11 @@ class SendInfosController < ApplicationController
     @users = SendInfo.all
   end
 
+  def destroy_all
+    SendInfo.destroy_all
+    redirect_to root_path
+  end
+
   private
 
   def self.chart_date

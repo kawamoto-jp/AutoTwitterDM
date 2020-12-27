@@ -3,6 +3,8 @@
     <%= column_chart @data, xtitle: "日付", ytitle: "送信数", width: "600px", height: "400px" %>
   </div>
   <br>
+  <%= button_to "保存内容を全て削除", destroy_all_send_infos_path, method: :delete, class: 'btn2'%>
+  
   <div class="users">
     <p class="big">現在の登録情報</p>
     <% @users.each do |user| %>
