@@ -9,12 +9,12 @@
     <div class="atena">
       <p class="title"><%= f.label :store_name, "敬称" %></p>
       <p class="row">※宛名と送信文章の間は1行分空けています。</p>
-      <%= f.text_area :atena, id:"atena", placeholder:"(例)様へ", rows:"10" ,maxlength:"50" %>
+      <%= f.text_area :atena, id:"atena", placeholder:"(例)様へ", rows:"10" ,maxlength:"500" %>
     </div>
     
     <div class="content">
       <p class="title"><%= f.label :store_name, "文章" %></p>
-      <%= f.text_area :text, id:"text", placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"500" %>
+      <%= f.text_area :text, id:"text", placeholder:"送る文章を入力してください。", rows:"25" ,maxlength:"10000" %>
     </div>
   </div>
   <div class="submit">
