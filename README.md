@@ -12,6 +12,12 @@ Twitter自動DMツール
 ③文章を入力します  
 ④一旦その内容を保存します  
 ⑤保存内容を確認し、送信します  
+<img src="auto_twitter_top.png" width="700" height="700">  
+↑入力画面です。  
+  
+  
+<img src="auto_twitter_create.png" width="700" height="700">  
+↑保存完了画面です。  
 
 # 制作背景
 ある企業様から、「大量のアカウントに対してDMを自動で送りたい」というご要望をいただき、このアプリを制作いたしました。  
