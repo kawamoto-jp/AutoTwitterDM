@@ -14,7 +14,7 @@ class SendInfosController < ApplicationController
   end
 
   def new
-    gon.user_num = SendInfo.count
+    gon.user_num = SendInfo.ids.length
     if SendInfo.ids.length > 0
       a = SendInfo.all.order(created_at: :desc).limit(1).pluck(:id)
       @value = SendInfo.find_by(id: a).text

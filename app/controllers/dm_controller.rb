@@ -3,6 +3,7 @@ class DmController < ApplicationController
 
   def new
     @user_num = SendInfo.count
+    # gon.user_num = SendInfo.count
     @user = SendInfo.first
     begin
       @client.create_direct_message(@client.user(@user.name).id, "#{@client.user(@user.name).name}#{@user.atena}\n\n#{@user.text}")

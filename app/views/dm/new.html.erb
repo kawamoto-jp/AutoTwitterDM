@@ -1,46 +1,9 @@
 <div class="container">
-  <div id="mydiv"><p>送信中・・・</p></div>
-  <div class="percent">
+  <div id="mydiv"><p style="font-size: 20px;">送信中・・・</p></div>
+  <div class="percent" style="font-size:25px;">
     残り<%= @user_num%>人分
   </div>
   <br>
   <br>
-  <p>もし途中で止めたい場合は、リロードを押してください。<br>他のボタンを押しても止まりません。</p>
+  <p style="font-size: 25px;">もし途中で止めたい場合は、リロードを押してください。<br>その後30分以上置いてから、再度送信を開始してください。<br><br><b style="font-size: 30px;">※他のボタンを押して止めようとした場合、30分以上置いてから再度送信を開始してください。</b></p>
 </div>
-<script>
-  document.getElementById("indicator").onclick = function() {
-    if(gon.user_num == 0){
-      alert('内容が保存されていません。');
-    }else{
-      let i = 1;
-      let countup = function(){
-        if(i % 90 == 0){
-          let count3h = function(){
-            let iidd = setTimeout(count3h, 10800000);
-            console.log(i);
-            console.log(gon.user_num);
-            document.getElementById('click').click();
-            i++
-            if(i == gon.user_num + 1){
-              clearTimeout(iidd);
-              alert('送信完了しました。\nトップへ戻ります。');
-            }
-          }
-          count3h();
-        }else{
-          console.log(i);
-          console.log(gon.user_num);
-          document.getElementById('click').click();
-          let id = setTimeout(countup, 120000);
-          // let id = setTimeout(countup, 5000);
-          i++
-          if(i == gon.user_num + 1){
-            clearTimeout(id);
-            alert('送信完了しました。\nトップに戻ります。');
-          }
-        }
-      }
-      countup();
-    }
-  };
-</script>

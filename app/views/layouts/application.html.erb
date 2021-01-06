@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= Gon::Base.render_data %>
-    
+    <%= include_gon %>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
 
@@ -27,5 +26,37 @@
     <p><%= link_to '発火ボタン(none)', new_dm_path, id: "indicator", class: 'white' %></p>
     <p><%= link_to '本送信(none)', new_dm_path, id: "click", class: 'white' %></p>
     </div>
+
+<script>
+  document.getElementById("indicator").onclick = function() {
+    if(gon.user_num == 0){
+      alert('内容が保存されていません。');
+    }else{
+      let i = 1;
+      let countup = function(){
+        console.log(i);
+        console.log(gon.user_num);
+        document.getElementById('click').click();
+        if(i % 90 == 0){
+          let iidd = setTimeout(count30m, 1800000);
+          // let iidd = setTimeout(countup, 10000);
+          if(i == gon.user_num){
+            clearTimeout(iidd);
+            alert('送信完了しました。\nトップへ戻ります。');
+          }
+        }else{
+          let id = setTimeout(countup, 120000);
+          // let id = setTimeout(countup, 500);
+          if(i == gon.user_num){
+            clearTimeout(id);
+            alert('送信完了しました。\nトップに戻ります。');
+          }
+        }
+        i++
+      }
+      countup();
+    }
+  };
+</script>
   </body>
 </html>
