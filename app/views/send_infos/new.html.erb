@@ -3,13 +3,13 @@
   <div class="form">
     <div class="content">
       <p class="title"><%= f.label :store_name, "Twitterアカウント" %></p>
-      <%= f.text_area :name, id:"name", placeholder:"＠以降を一人1行で入力してください(@を含めても可)\n(例)\n@abcd\nyyoo" ,rows:"25" ,maxlength:"500" %>
+      <%= f.text_area :name, id:"name", placeholder:"＠以降を一人1行で入力してください(@を含めても可)\n(例)\n@abcd\nyyoo" ,rows:"25" %>
     </div>
 
     <div class="atena">
       <p class="title"><%= f.label :store_name, "敬称" %></p>
       <p class="row">※宛名と送信文章の間は1行分空けています。</p>
-      <%= f.text_area :atena, id:"atena", placeholder:"(例)様へ", rows:"10" ,maxlength:"500" %>
+      <%= f.text_area :atena, id:"atena", placeholder:"(例)様へ", rows:"10" %>
     </div>
     
     <div class="content">
