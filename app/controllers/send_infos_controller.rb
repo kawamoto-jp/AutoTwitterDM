@@ -3,6 +3,7 @@ class SendInfosController < ApplicationController
 
   def index
     @users = SendInfo.all
+    @user_num = SendInfo.count
     dates = []
     to  = Time.current.at_end_of_day
     from = (to - 6.day).at_beginning_of_day
@@ -37,6 +38,7 @@ class SendInfosController < ApplicationController
       i += 1
     end
     @users = SendInfo.all
+    @user_num = SendInfo.count
   end
 
   def destroy_all

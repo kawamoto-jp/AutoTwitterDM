@@ -3,7 +3,7 @@
   <%= button_to "保存内容を全て削除", destroy_all_send_infos_path, method: :delete, class: 'btn2'%>
   
   <div class="users">
-    <p class="big">現在の登録情報</p><p class="span"> ※宛名はIDで表示されていますが、アカウント名で送られます。</p>
+    <p class="big">現在の登録情報 <%= @user_num%>人</p><p class="span"> ※宛名はIDで表示されていますが、アカウント名で送られます。</p>
     <% @users.each do |user| %>
     <p><%= user.name %><%= user.atena %></p>
     <p><%= user.text %></p>
