@@ -38,15 +38,15 @@
         console.log(gon.user_num);
         document.getElementById('click').click();
         if(i % 90 == 0){
-          let iidd = setTimeout(count30m, 1800000);
-          // let iidd = setTimeout(countup, 10000);
+          // let iidd = setTimeout(countup, 1800000);
+          let iidd = setTimeout(countup, 10000);
           if(i == gon.user_num){
             clearTimeout(iidd);
             alert('送信完了しました。\nトップへ戻ります。');
           }
         }else{
-          let id = setTimeout(countup, 120000);
-          // let id = setTimeout(countup, 500);
+          // let id = setTimeout(countup, 120000);
+          let id = setTimeout(countup, 500);
           if(i == gon.user_num){
             clearTimeout(id);
             alert('送信完了しました。\nトップに戻ります。');
