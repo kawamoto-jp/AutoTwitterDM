@@ -1,0 +1,3 @@
+:schedule:
+  HelloSidekiqJob:
+    every: '1m'

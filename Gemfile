@@ -61,3 +61,9 @@ gem 'groupdate'
 gem 'jquery-rails'
 gem 'selenium-webdriver'
 gem 'gon'
+gem 'whenever', require: false
+
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'sinatra', require: false
+gem 'dotenv-rails', groups: [:development, :test]
