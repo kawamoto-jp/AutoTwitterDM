@@ -26,6 +26,6 @@ namespace :minite_post do
     end
 
     #デバッグのため
-    p "OKok"
+    p "OK!!"
   end
 end
