@@ -11,7 +11,7 @@ namespace :minite_post do
       config.access_token        = ENV["ACCESS_TOKEN"]
       config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
     end
-    @users = SendInfo.limit(6)
+    @users = SendInfo.limit(5)
     @user_num = @users.count
     @users.each do |user|
       if @user_num != 0
