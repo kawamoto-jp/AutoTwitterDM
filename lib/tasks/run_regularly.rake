@@ -21,7 +21,7 @@ namespace :minite_post do
           puts error
         end
         user.destroy
-        sleep(10)
+        sleep(20)
       end
     end
 
