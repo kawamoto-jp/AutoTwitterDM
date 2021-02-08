@@ -11,16 +11,18 @@ namespace :minite_post do
       config.access_token        = ENV["ACCESS_TOKEN"]
       config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
     end
-    @user_num = SendInfo.count
-    @user = SendInfo.first
-    begin
-      @client.create_direct_message(@client.user(@user.name).id, "#{@client.user(@user.name).name}#{@user.atena}\n\n#{@user.text}")
-    rescue => error
-      puts error
-    end
-
-    if @user_num >= 1
-      @user.destroy
+    @users = SendInfo.limit(6)
+    @user_num = @users.count
+    @users.each do |user|
+      if @user_num != 0
+        begin
+          @client.create_direct_message(@client.user(user.name).id, "#{@client.user(user.name).name}#{user.atena}\n\n#{user.text}")
+        rescue => error
+          puts error
+        end
+        user.destroy
+        sleep(10)
+      end
     end
 
     #デバッグのため
