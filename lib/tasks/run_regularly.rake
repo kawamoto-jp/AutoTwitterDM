@@ -11,7 +11,7 @@ namespace :minite_post do
       config.access_token        = ENV["ACCESS_TOKEN"]
       config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
     end
-    @users = SendInfo.limit(5)
+    @users = SendInfo.limit(4)
     @user_num = @users.count
     @users.each do |user|
       if @user_num != 0
@@ -21,7 +21,7 @@ namespace :minite_post do
           puts error
         end
         user.destroy
-        sleep(10)
+        sleep(20)
       end
     end
 
