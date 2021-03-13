@@ -17,10 +17,10 @@ namespace :minite_post do
       if @user_num != 0
         begin
           @client.create_direct_message(@client.user(user.name).id, "#{@client.user(user.name).name}#{user.atena}\n\n#{user.text}")
-          "正常に送信されました！"
+          p "正常に送信されました！"
         rescue => error
-          "送信できませんでした。"
-          puts error
+          p "送信できませんでした。"
+          p error
         end
         user.destroy
         sleep(20)
